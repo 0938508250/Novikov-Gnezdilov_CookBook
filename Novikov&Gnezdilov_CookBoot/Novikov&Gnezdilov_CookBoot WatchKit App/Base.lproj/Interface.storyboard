@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="19455" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch44"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="19454"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc">
+                    <items>
+                        <imageView alignment="center" verticalAlignment="center" image="logo" id="sSW-2B-XsM"/>
+                        <label alignment="center" verticalAlignment="center" text="CookBook" id="8cZ-1r-Fto">
+                            <fontDescription key="font" style="UICTFontTextStyleTitle2"/>
+                        </label>
+                    </items>
+                    <connections>
+                        <segue destination="aFD-Qo-IRX" kind="relationship" relationship="nextPage" id="6cI-pd-VE3"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="219.52173913043478" y="344.55357142857144"/>
+        </scene>
+        <!--Table RecipesIC-->
+        <scene sceneID="S45-Lk-WY4">
+            <objects>
+                <controller id="aFD-Qo-IRX" customClass="TableRecipesIC" customModule="Novikov_Gnezdilov_CookBoot_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="8HK-DH-SEC">
+                            <items>
+                                <tableRow identifier="tableRow" id="qFh-AF-fRI" customClass="RowTable">
+                                    <group key="rootItem" width="1" alignment="left" id="nXz-7q-T9C">
+                                        <items>
+                                            <imageView width="30" height="30" alignment="left" verticalAlignment="center" image="swift" catalog="system" id="aYU-bd-P8i">
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </imageView>
+                                            <label alignment="left" verticalAlignment="center" text="RecName" id="PJZ-qr-6dF"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="rowPicture" destination="aYU-bd-P8i" id="M9i-qf-zuI"/>
+                                        <outlet property="rowRecipeName" destination="aYU-bd-P8i" id="A4Y-LD-NQA"/>
+                                        <segue destination="5Hl-zb-kpi" kind="push" id="ur6-0i-jS6"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                    </items>
+                    <connections>
+                        <outlet property="table" destination="8HK-DH-SEC" id="IeR-6O-7sq"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="466" y="338"/>
+        </scene>
+        <!--Detail RecipeIC-->
+        <scene sceneID="xDL-yS-19l">
+            <objects>
+                <controller id="5Hl-zb-kpi" customClass="DetailRecipeIC" customModule="Novikov_Gnezdilov_CookBoot_WatchKit_Extension">
+                    <items>
+                        <group width="1" alignment="left" id="M6a-uc-q49">
+                            <items>
+                                <label alignment="center" text="IC" id="l8U-ol-0Kc"/>
+                                <label alignment="center" verticalAlignment="center" text="name" id="Zf1-DC-fUb"/>
+                            </items>
+                        </group>
+                        <imageView alignment="center" id="WxF-j9-5jR"/>
+                        <label alignment="left" text="Автор:" id="0kk-BQ-l6A"/>
+                        <group width="1" alignment="left" id="pav-Jo-MXn">
+                            <items>
+                                <label alignment="left" text="authorName" id="Wvv-ui-Uc0"/>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" id="XiU-85-ssB">
+                            <items>
+                                <label alignment="left" text="Описание" id="IlN-6T-jEI"/>
+                            </items>
+                        </group>
+                        <label alignment="left" text="recipeText" id="fGk-Cj-Y0X"/>
+                        <slider width="1" alignment="left" maximum="0.0" steps="5" minimumImage="star" catalog="system" maximumImage="star.fill" id="goc-We-lrw">
+                            <color key="color" red="0.97254901960784312" green="0.70196078431372544" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="changeRating:" destination="5Hl-zb-kpi" id="HYd-Uv-u3M"/>
+                            </connections>
+                        </slider>
+                    </items>
+                    <connections>
+                        <outlet property="authorRecipe" destination="Zf1-DC-fUb" id="x0K-IR-sSE"/>
+                        <outlet property="icmageRecipe" destination="WxF-j9-5jR" id="qdJ-cK-MYA"/>
+                        <outlet property="iconRecipe" destination="WxF-j9-5jR" id="bCX-kV-Q3L"/>
+                        <outlet property="nameRecipe" destination="Zf1-DC-fUb" id="ihf-mg-Lbh"/>
+                        <outlet property="ratingRecipe" destination="goc-We-lrw" id="AYj-Np-kaM"/>
+                        <outlet property="textRecipe" destination="Zf1-DC-fUb" id="8Go-si-ACV"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="710" y="345"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="logo" width="48" height="48"/>
+        <image name="star" catalog="system" width="128" height="115"/>
+        <image name="star.fill" catalog="system" width="128" height="115"/>
+        <image name="swift" catalog="system" width="128" height="112"/>
+    </resources>
+</document>
